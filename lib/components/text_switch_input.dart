@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class CustomComponent extends StatelessWidget {
+class TextSwitchInput extends StatelessWidget {
   final List<String> texts;
 
-  CustomComponent({required this.texts});
+  TextSwitchInput({required this.texts});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:secret_cam/blocs/setting_bloc.dart';
 import 'package:secret_cam/screens/settings_screen.dart';
 import 'package:secret_cam/screens/home_screen.dart';
 import 'package:secret_cam/screens/bottom_navigation_screen.dart';
@@ -56,8 +58,11 @@ final mainShellRouter = GoRouter(
           routes: [
             GoRoute(
               path: '/settings',
-              pageBuilder: (context, state) => const NoTransitionPage(
-                child: SettingsScreen(),
+              pageBuilder: (context, state) => NoTransitionPage(
+                child: BlocProvider(
+                  create: (context) => SettingBloc(),
+                  child: const SettingsScreen(),
+                ),
               ),
             ),
           ],

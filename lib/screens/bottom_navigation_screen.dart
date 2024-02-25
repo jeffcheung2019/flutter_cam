@@ -42,11 +42,9 @@ class ButtonNavigation extends StatelessWidget {
           selectedIndex: navigationShell.currentIndex,
           destinations: const [
             // the appearance of each tab is defined with a [NavigationDestination] widget
-            NavigationDestination(label: 'Home', icon: Icon(Icons.home)),
-            NavigationDestination(
-                label: 'Media', icon: Icon(Icons.insert_photo)),
-            NavigationDestination(
-                label: 'Settings', icon: Icon(Icons.settings)),
+            NavigationDestination(label: '', icon: Icon(Icons.home)),
+            NavigationDestination(label: '', icon: Icon(Icons.insert_photo)),
+            NavigationDestination(label: '', icon: Icon(Icons.settings)),
           ],
           onDestinationSelected: _goBranch),
     );

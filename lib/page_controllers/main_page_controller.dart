@@ -5,17 +5,18 @@ import 'package:secret_cam/screens/take_photo_screen.dart';
 import 'package:secret_cam/screens/take_video_screen.dart';
 
 class MainPageController extends StatefulWidget {
+  const MainPageController({super.key});
+
   @override
   _MainPageControllerState createState() => _MainPageControllerState();
 }
 
 class _MainPageControllerState extends State<MainPageController> {
   final PageController _pageController = PageController(initialPage: 1);
-  final int _targetPageIndex = 0; // Index of the destination page
   final List<Widget> _pages = [
-    TakePhotoScreen(),
+    const TakePhotoScreen(),
     ButtonNavigationScreen(),
-    TakeVideoScreen(),
+    const TakeVideoScreen(),
   ];
 
   @override

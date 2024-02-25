@@ -14,8 +14,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         centerTitle: true,
       ),
-      backgroundColor: Colors.blue,
-      body: Center(child: Text("AAA")),
+      body: Container(
+          color: const Color.fromARGB(255, 230, 230, 230),
+          child: Stack(
+            children: [],
+          )),
     );
   }
 }
