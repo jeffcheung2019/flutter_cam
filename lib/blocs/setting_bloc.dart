@@ -14,6 +14,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
 
   @override
   Stream<SettingState> mapEventToState(SettingEvent event) async* {
+    print("state " + event.toString() + "|" + (event is TakeVideoTimeChanged).toString());
     if (event is TakePhotoBrightnessChanged) {
       yield state.copyWith(takePhotoBrightness: event.takePhotoBrightness);
     } else if (event is TakeVideoBrightnessChanged) {

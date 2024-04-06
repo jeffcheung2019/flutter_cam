@@ -29,14 +29,14 @@ final mainShellRouter = GoRouter(
             GoRoute(
               path: '/',
               pageBuilder: (context, state) {
-                return const NoTransitionPage(
+                return NoTransitionPage(
                   child: HomeScreen(),
                 );
               },
               routes: [
                 GoRoute(
                   path: 'tutorial',
-                  builder: (context, state) => const TutorialScreen(),
+                  builder: (context, state) => TutorialScreen(),
                 ),
               ],
             ),
@@ -47,7 +47,7 @@ final mainShellRouter = GoRouter(
           routes: [
             GoRoute(
               path: '/media',
-              pageBuilder: (context, state) => const NoTransitionPage(
+              pageBuilder: (context, state) => NoTransitionPage(
                 child: MediaLibraryScreen(),
               ),
             ),
@@ -61,7 +61,7 @@ final mainShellRouter = GoRouter(
               pageBuilder: (context, state) => NoTransitionPage(
                 child: BlocProvider(
                   create: (context) => SettingBloc(),
-                  child: const SettingsScreen(),
+                  child: SettingsScreen(),
                 ),
               ),
             ),

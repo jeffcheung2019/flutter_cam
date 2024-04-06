@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TutorialScreen extends StatefulWidget {
-  const TutorialScreen({super.key});
+  TutorialScreen({super.key});
 
   State<TutorialScreen> createState() => _TutorialScreenState();
 }
