@@ -20,7 +20,9 @@ final mainShellRouter = GoRouter(
   routes: [
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
-        return ButtonNavigation(navigationShell: navigationShell);
+        return BlocProvider<SettingBloc>(
+            create: (context) => SettingBloc(),
+            child: ButtonNavigation(navigationShell: navigationShell));
       },
       branches: [
         StatefulShellBranch(
@@ -58,12 +60,8 @@ final mainShellRouter = GoRouter(
           routes: [
             GoRoute(
               path: '/settings',
-              pageBuilder: (context, state) => NoTransitionPage(
-                child: BlocProvider(
-                  create: (context) => SettingBloc(),
-                  child: SettingsScreen(),
-                ),
-              ),
+              pageBuilder: (context, state) =>
+                  NoTransitionPage(child: SettingsScreen()),
             ),
           ],
         ),

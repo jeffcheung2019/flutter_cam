@@ -6,16 +6,18 @@ import 'package:secret_cam/events/setting_events.dart';
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({super.key});
 
+  @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
   final _videoTimeController = TextEditingController();
-  final SettingBloc _settingBloc = SettingBloc();
+  late SettingBloc _settingBloc;
 
   @override
   void initState() {
     super.initState();
+    _settingBloc = BlocProvider.of<SettingBloc>(context);
     _videoTimeController.text = _settingBloc.state.takeVideoTime.toString();
     _videoTimeController.addListener(_onVideoTimeChanged);
   }
@@ -38,34 +40,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-          child: Column(
-            children: [
-              TextField(
-                controller: _videoTimeController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: 'Video Time',
-                ),
-              ),
-              BlocBuilder<SettingBloc, SettingState>(
-                builder: (context, state) {
-                  return Text(
-                    'Current Video Time: ${state.takeVideoTime}',
-                    style: TextStyle(fontSize: 18),
-                  );
-                },
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: const TextStyle(fontSize: 20),
-                ),
-                onPressed: () {
-                  BlocProvider.of<SettingBloc>(context).add(TakeVideoTimeChanged(22));
-                },
-                child: const Text('ABC'),
-              )
-            ]
-          )),
+          child: Column(children: [
+        TextField(
+          controller: _videoTimeController,
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(
+            labelText: 'Video Time',
+          ),
+        ),
+        BlocBuilder<SettingBloc, SettingState>(
+          builder: (context, state) {
+            return Text(
+              'Current Video Time: ${state.takeVideoTime}',
+              style: TextStyle(fontSize: 18),
+            );
+          },
+        ),
+        TextButton(
+          style: TextButton.styleFrom(
+            textStyle: const TextStyle(fontSize: 20),
+          ),
+          onPressed: () {
+            BlocProvider.of<SettingBloc>(context).add(TakeVideoTimeChanged(22));
+          },
+          child: const Text('ABC'),
+        )
+      ])),
     );
   }
 }

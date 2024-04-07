@@ -47,9 +47,9 @@ class _MainRouterScreenState extends State<MainRouterScreen> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        // BlocProvider<SettingBloc>(
-        //   create: (context) => SettingBloc(),
-        // ),
+        BlocProvider<SettingBloc>(
+          create: (context) => SettingBloc(),
+        ),
         // Add more bloc providers as needed
       ],
       child: MaterialApp.router(
