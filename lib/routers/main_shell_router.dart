@@ -15,7 +15,7 @@ final _shellNavigatorSettingsKey =
     GlobalKey<NavigatorState>(debugLabel: 'Settings');
 
 final mainShellRouter = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/settings',
   navigatorKey: _rootNavigatorKey,
   routes: [
     StatefulShellRoute.indexedStack(

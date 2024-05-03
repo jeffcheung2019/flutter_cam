@@ -10,11 +10,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 47, 69, 107),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Container(
           child: Expanded(
         child: Container(
-            color: Colors.amber,
+            color: Colors.white,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

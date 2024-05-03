@@ -5,25 +5,37 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SettingBloc extends Bloc<SettingEvent, SettingState> {
   SettingBloc()
       : super(SettingState(
-            takePhotoBrightness: 0,
-            takeVideoBrightness: 0,
+            language: "English",
+            photoCameraMode: 0,
             photoMode: 0,
-            videoMode: 0,
+            takePhotoBrightness: 0,
             takePhotoInterval: 10,
             takePhotoCnt: 5,
-            takeVideoTime: 30)) {
-    on<TakePhotoBrightnessChanged>((event, emit) =>
-        emit(state.copyWith(takePhotoBrightness: event.takePhotoBrightness)));
-    on<TakeVideoBrightnessChanged>((event, emit) =>
-        emit(state.copyWith(takeVideoBrightness: event.takeVideoBrightness)));
+            videoCameraMode: 0,
+            videoMode: 0,
+            takeVideoBrightness: 0,
+            takeVideoTime: 30,
+            takeAudioTime: 30)) {
+    on<LanguageChanged>(
+        (event, emit) => emit(state.copyWith(language: event.language)));
+    on<UsePhotoCameraMode>((event, emit) =>
+        emit(state.copyWith(photoCameraMode: event.photoCameraMode)));
     on<TakePhotoMode>(
         (event, emit) => emit(state.copyWith(photoMode: event.photoMode)));
-    on<TakePhotoSettingChanged>((event, emit) => emit(state.copyWith(
-        takePhotoInterval: event.takePhotoInterval,
-        takePhotoCnt: event.takePhotoCnt)));
+    on<TakePhotoBrightnessChanged>((event, emit) =>
+        emit(state.copyWith(takePhotoBrightness: event.takePhotoBrightness)));
+    on<TakePhotoIntervalChanged>((event, emit) =>
+        emit(state.copyWith(takePhotoInterval: event.takePhotoInterval)));
+    on<TakePhotoCntChanged>((event, emit) =>
+        emit(state.copyWith(takePhotoCnt: event.takePhotoCnt)));
+
     on<TakeVideoMode>(
         (event, emit) => emit(state.copyWith(videoMode: event.videoMode)));
+    on<TakeVideoBrightnessChanged>((event, emit) =>
+        emit(state.copyWith(takeVideoBrightness: event.takeVideoBrightness)));
     on<TakeVideoTimeChanged>((event, emit) =>
         emit(state.copyWith(takeVideoTime: event.takeVideoTime)));
+    on<TakeAudioTimeChanged>((event, emit) =>
+        emit(state.copyWith(takeAudioTime: event.takeAudioTime)));
   }
 }

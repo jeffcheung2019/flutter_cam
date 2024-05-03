@@ -22,7 +22,7 @@ class _MediaLibraryScreenState extends State<MediaLibraryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
           child: Column(
         children: [
